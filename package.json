@@ -1,0 +1,15 @@
+{
+  "name": "easy-rich-presence",
+  "version": "0.8.9",
+  "description": "A Discord Rich Presence application",
+  "main": "mainfiles/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mainfiles/main.js"
+  },
+  "author": "Null",
+  "license": "ISC",
+  "dependencies": {
+    "discord-rpc": "^3.0.0"
+  }
+}

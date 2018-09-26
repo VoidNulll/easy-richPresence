@@ -1,0 +1,8 @@
+{
+    "richpres": {
+        "clientId": "clientId",
+        "prompt": "true",
+        "timer": "1500",
+        "name": "chilling"
+    }
+}
