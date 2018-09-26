@@ -27,7 +27,7 @@ for(let file of files) { // Loops through all profiles
     console.log('(Error) I need the bigIconTxt for profile: ' + profile.name); //Tells you the profile that is missing its bigIconTxt 
     process.exit()//Exits the process
   }
-  filenames.push(profile.name)
+  filenames.push(profile.name) //Push the profile to filenames
 }
 
 module.exports = filenames;

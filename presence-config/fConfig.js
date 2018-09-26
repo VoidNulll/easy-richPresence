@@ -30,7 +30,7 @@ if(!config.richpres.name) {//If there is no name
             rpcnames.push(rpc.name)
         }
     };
-    if(rpcnames.length == rpcs.length) { //If the rpcnames length equals the rp;cs length
+    if(rpcnames.length == rpcs.length) { //If the rpcnames length equals the rpcs length
         console.log('(Error) The name you put in the config file was invalid (I couldnt find any profiles with that name attached)') //Inform the user
         process.exit() //Exit the app
     }

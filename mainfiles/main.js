@@ -14,9 +14,9 @@ name.push(fConfig.name)
 */
 
 function arrayMachine(arrayName, pushing) {
-    arrayName.forEach(() => {
+    for(i in arrayName) {
       arrayName.pop()
-    });
+    }
     if(arrayName.length == 0) {
       arrayName.push(pushing);
     } else {
