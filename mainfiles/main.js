@@ -44,10 +44,10 @@ if(fConfig.prompt !== 'true') { //Checks if the prompt is not true
     setActivity({ //Set the activity
       state: rpc1[0].state,
       details: rpc1[0].details,
-      largeImg: rpc1[0].bigFileIcon,
-      SmallImg: rpc1[0].littleFileIcon,
-      LargeImgTxt: rpc1[0].bigIconTxt,
-      SmallImgTxt: rpc1[0].littleIconTxt
+      largeImg: rpc1[0].assets.large.icon,
+      SmallImg: rpc1[0].assets.small.icon,
+      LargeImgTxt: rpc1[0].assets.large.txt,
+      SmallImgTxt: rpc1[0].assets.small.txt
     })
   });  
 } else { //if the prompt is not set to true, do this
@@ -65,10 +65,10 @@ rpc.on('ready', () => { //
   setActivity({ //Set the activitu
     state: rpc1[0].state,
     details: rpc1[0].details,
-    largeImg: rpc1[0].bigFileIcon,
-    SmallImg: rpc1[0].littleFileIcon,
-    LargeImgTxt: rpc1[0].bigIconTxt,
-    SmallImgTxt: rpc1[0].littleIconTxt
+    largeImg: rpc1[0].assets.large.icon,
+    SmallImg: rpc1[0].assets.small.icon,
+    LargeImgTxt: rpc1[0].assets.large.txt,
+    SmallImgTxt: rpc1[0].assets.small.txt
   })
   rl.prompt()//Start the prompt
 });
@@ -124,10 +124,10 @@ function richPresReset() {
       setActivity({//Function to update the users activity
         state: rpc1[0].state,
         details: rpc1[0].details,
-        largeImg: rpc1[0].bigFileIcon,
-        SmallImg: rpc1[0].littleFileIcon,
-        LargeImgTxt: rpc1[0].bigIconTxt,
-        SmallImgTxt: rpc1[0].littleIconTxt
+        largeImg: rpc1[0].assets.large.icon,
+        SmallImg: rpc1[0].assets.small.icon,
+        LargeImgTxt: rpc1[0].assets.large.txt,
+        SmallImgTxt: rpc1[0].assets.small.txt
       })
       }
     }
