@@ -10,5 +10,6 @@ codepg
 vsc
 design
 xbox
+ns
 
 And here is a link so you can see what they look like: https://null-void.elixi.re/i/dyyv.png
