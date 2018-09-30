@@ -10,12 +10,12 @@ You will need to edit the config file in order to start the rich presence applic
 - Node version 8 or higher.
 - A text editor capable of editing js and json files (Most are)
 - Discord
-- A Discord application
+- A Discord application (I provide a simple one, but you can make your own)
 
 ## How you can get Easy Rich Presence
 
 Download it through github, its that easy.
-Then run this command:
+Then run this command (In the correct directory):
 ```sh
 $ npm install
 ```
@@ -51,3 +51,5 @@ Or if you want to use pm2 (You will have to turn off the prompt, and you will no
 ```sh
 $ npm startpm2
 ```
+
+# You can find a list of assets under the file `assets.txt`
