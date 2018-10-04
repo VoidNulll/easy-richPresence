@@ -43,4 +43,8 @@ let fConfig = {
   prompt: config.richpres.prompt // True or false value for the prompt
 }
 
+<<<<<<< HEAD
 module.exports = fConfig
+=======
+module.exports = fConfig; //Export the finale config
+>>>>>>> 9bf2040ef931907cc8517257c3b74a9facd3a3de
