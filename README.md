@@ -1,4 +1,7 @@
 # Easy Rich Presence
+
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 A simple **rich presence** application created for **Discord**
 ## What you need to know
 This app was designed with 'profiles' in mind, therefore you can have 'profiles' in the folder **profiles**. WE gave you one so you can use it as a example. You **will** need a machine capable of running node.
