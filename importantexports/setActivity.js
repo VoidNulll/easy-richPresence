@@ -8,18 +8,18 @@ const rpc = require('../mainfiles/rpc')
  * @arg {string} [options.SmallImg] The small image in the rich presence
  * @arg {string} [options.LargeImgTxt] The text for the large image
  * @arg {string} [options.SmallImgTxt] The text for the small image
- */ 
-function setActivity(options) {
-    rpc.setActivity({
-      details: options.state, //Sets the details
-      state: options.details, //Sets the state
-      largeImageKey: options.largeImg, //Sets the largeImageKey
-      largeImageText: options.LargeImgTxt, //Sets the largeImageText
-      smallImageKey: options.SmallImg, //Sets the smallImageKey
-      smallImageText: options.SmallImgTxt, //Sets the smallImageText
-      instance: false,
-      startTimestamp: new Date()
-    });
-  }
+ */
+function setActivity (options) {
+  rpc.setActivity({
+    details: options.state, // Sets the details
+    state: options.details, // Sets the state
+    largeImageKey: options.largeImg, // Sets the largeImageKey
+    largeImageText: options.LargeImgTxt, // Sets the largeImageText
+    smallImageKey: options.SmallImg, // Sets the smallImageKey
+    smallImageText: options.SmallImgTxt, // Sets the smallImageText
+    instance: false,
+    startTimestamp: new Date()
+  })
+}
 
-module.exports = setActivity;
+module.exports = setActivity
