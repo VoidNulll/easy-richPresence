@@ -7,36 +7,23 @@ let name = []
 
 name.push(fConfig.name)
 
-/**
-*Edits an array
-*@param {array} arrayName Name of the array you want to edit.
-*@param {string} pushing Stuff to push to the array
-*/
-
-function arrayMachine (arrayName, pushing) {
-  for (i in arrayName) {
-    arrayName.pop()
-  }
-  if (arrayName.length == 0) {
-    arrayName.push(pushing)
-  } else {
-
-  }
-}
-
 let backupname = []
 backupname.push(name[0])
 
 let rpcs = require('../importantexports/rpcs') // Require rpc profiles
 
-const rpcname = []
+let rpcname = []
 let rpc1 = []
 for (let rpc2 of rpcs) { // Loops through the rpcs
-  if (rpc2.name == name[0]) { // Checks for the rpc name
+  if (rpc2.name === name[0]) { // Checks for the rpc name
     rpc1.push(rpc2) // Pushes the rpc to rpc1 if the rpc name equals name[0]
     rpcname.push(rpc2.name)
   }
 }
+
+rpc.on('error', (err) => { // on error
+  console.log(`Rich Presence Error: ${err}`) // Log the error
+})
 
 if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
   rpc.on('ready', () => {
@@ -60,6 +47,11 @@ if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
     output: process.stdout,
     prompt: 'Would you like to set your profile (set), clear your activity (clear/c), or exit the app (exit/e)? '
   })
+
+  rl.on('error', (err) => { // on error
+    console.log(`Readline Error: ${err}`) // Log the error
+  })
+
   rpc.on('ready', () => { //
     console.log('ready')
     setActivity({ // Set the activitu
@@ -74,17 +66,17 @@ if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
   })
 
   rl.on('line', (line) => { // readline line event
-    if (line == 'exit' || line == 'e') {
+    if (line === 'exit' || line === 'e') {
       rl.question('Are you sure you want to exit? (y/yes)(n/no) ', (answer) => { // Question the user
         if (answer.match(/^y(es)?$/i)) process.exit()// Exit the process
         else if (answer.match(/^n(o)?$/i)) console.log('Ok, i will not exit')
         else console.log('Thats not a option, i have no exited the application')
         rl.prompt()// Show the prompt
       })
-    } else if (line == 'set') {
+    } else if (line === 'set') {
       rl.question(`Which of these would you like to set your profile to? Here are your options: ${filenames.join(', ')}. `, (answer) => { // Ask the user what profile they would like to set
         if (filenames.includes(answer)) { // Makes sure the answer is a valid profile name
-          arrayMachine(name, answer)
+          name = [answer]
           console.log('Your profile has been set to: ' + answer) // Tell the user it was a success
           rl.prompt()// Show the prompt
         } else { // If the answer is not a valid profile
@@ -92,7 +84,7 @@ if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
           rl.prompt()// Show the prompt
         }
       })
-    } else if (line == 'clear' || line == 'c') {
+    } else if (line === 'clear' || line === 'c') {
       rl.question('Are you sure you want to clear your activity? (y/yes)(n/no) ', (answer) => { // Ask them if they want to clear the activity
         if (answer.match(/^y(es)?$/i)) rpc.clearActivity() // Clear the activity if the answer is y/yes
         else if (answer.match(/^n(o)?$/i)) console.log('I have not cleared your activity!') // It tells the user that the app has not cleared the users activity
@@ -114,9 +106,9 @@ if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
 function richPresReset () {
   if (rpcname[0] !== name[0] && backupname[0] !== name[0]) { // If stuff
     for (let rpc2 of rpcs) { // For of rpcs (array of all rpc profiles)
-      if (rpc2.name == name[0]) {
-        arrayMachine(backupname, name[0])
-        arrayMachine(rpc1, rpc2)// Function to update arrays
+      if (rpc2.name === name[0]) {
+        backupname = [name[0]]
+        rpc1 = [rpc2]// Update rpc2 array
         setActivity({// Function to update the users activity
           state: rpc1[0].state,
           details: rpc1[0].details,
@@ -127,8 +119,8 @@ function richPresReset () {
         })
       }
     }
-  } else if (name[0] == backupname[0] && name[0] !== rpcname[0]) { // If stuff
-    arrayMachine(rpcname, name[0]) // edit rpcname array
+  } else if (name[0] === backupname[0] && name[0] !== rpcname[0]) { // If stuff
+    rpcname = [name[0]] // edit rpcname array
   }
 }
 
