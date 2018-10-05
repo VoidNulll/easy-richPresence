@@ -1,3 +1,5 @@
+/* eslint no-console: off */
+
 // Require all needed things
 const rpc = require('./rpc')
 const fConfig = require('../presence-config/fConfig')
@@ -23,6 +25,20 @@ for (let rpc2 of rpcs) { // Loops through the rpcs
 
 rpc.on('error', (err) => { // on error
   console.log(`Rich Presence Error: ${err}`) // Log the error
+})
+
+// I hope this works...
+rpc.on('disconnect', () => {
+  console.log('Rich Presence Disconnected. Attempting to reconnect...') // Notify the user
+  rpc.connect({ clientId }).catch(console.error()) // Connect, logging the error
+  setActivity({ // Set the activity
+    state: rpc1[0].state,
+    details: rpc1[0].details,
+    largeImg: rpc1[0].assets.large.icon,
+    SmallImg: rpc1[0].assets.small.icon,
+    LargeImgTxt: rpc1[0].assets.large.txt,
+    SmallImgTxt: rpc1[0].assets.small.txt
+  })
 })
 
 if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
@@ -54,7 +70,7 @@ if (fConfig.prompt !== 'true') { // Checks if the prompt is not true
 
   rpc.on('ready', () => { //
     console.log('ready')
-    setActivity({ // Set the activitu
+    setActivity({ // Set the activity
       state: rpc1[0].state,
       details: rpc1[0].details,
       largeImg: rpc1[0].assets.large.icon,

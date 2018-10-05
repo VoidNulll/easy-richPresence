@@ -5,14 +5,11 @@
   "main": "mainfiles/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node mainfiles/main.js",
-    "lint:js": "standard --verbose | snazzy",
-    "lint:js-fix": "standard --fix --verbose | snazzy"
+    "start": "node mainfiles/main.js"
   },
   "author": "Null",
-  "license": "ISC",
+  "license": "None",
   "dependencies": {
     "discord-rpc": "^3.0.0"
-  },
-  "devDependencies": {}
+  }
 }

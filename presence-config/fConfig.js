@@ -8,7 +8,7 @@ const name = []
 
 let rpcnames = []
 
-if (!config.richpres.clientId || config.richpres.clientId == '') { // If there is no clientId
+if (!config.richpres.clientId || config.richpres.clientId === '') { // If there is no clientId
   console.log('(Error) I need a clientId!')
   process.exit()
 }
@@ -24,13 +24,13 @@ if (!config.richpres.name) { // If there is no name
   process.exit()
 } else {
   for (let rpc of rpcs) {
-    if (rpc.name == config.richpres.name) {
+    if (rpc.name === config.richpres.name) {
       name.push(rpc.name)
     } else {
       rpcnames.push(rpc.name)
     }
-  };
-  if (rpcnames.length == rpcs.length) { // If the rpcnames length equals the rpcs length
+  }
+  if (rpcnames.length === rpcs.length) { // If the rpcnames length equals the rpcs length
     console.log('(Error) The name you put in the config file was invalid (I couldnt find any profiles with that name attached)') // Inform the user
     process.exit() // Exit the app
   }
@@ -43,8 +43,4 @@ let fConfig = {
   prompt: config.richpres.prompt // True or false value for the prompt
 }
 
-<<<<<<< HEAD
 module.exports = fConfig
-=======
-module.exports = fConfig; //Export the finale config
->>>>>>> 9bf2040ef931907cc8517257c3b74a9facd3a3de

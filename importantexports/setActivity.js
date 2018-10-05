@@ -11,8 +11,8 @@ const rpc = require('../mainfiles/rpc')
  */
 function setActivity (options) {
   rpc.setActivity({
-    details: options.state, // Sets the details
-    state: options.details, // Sets the state
+    details: options.details, // Sets the details
+    state: options.state, // Sets the state
     largeImageKey: options.largeImg, // Sets the largeImageKey
     largeImageText: options.LargeImgTxt, // Sets the largeImageText
     smallImageKey: options.SmallImg, // Sets the smallImageKey
