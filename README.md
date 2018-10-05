@@ -45,14 +45,7 @@ The application will log a error and stop if something in the config is not with
 - clientId: The id of your discord application
 - Name: The name of the profile you want the app to start on.
 
-## When everything is said and done, this is what you need to do:
-
-```sh
-$ npm start
-```
-Or if you want to use pm2 (You will have to turn off the prompt, and you will no longer be able to select a different profile)
-```sh
-$ npm startpm2
-```
-
 # You can find a list of assets under the file `assets.txt`
+
+## When done: 
+You can run ```npm start``` To start the app
